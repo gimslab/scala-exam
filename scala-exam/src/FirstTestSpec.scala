@@ -17,5 +17,10 @@ class FirstTestSpec extends FlatSpec {
       emptyStack.pop()
     }
   }
+  
+  it should "must not be null" in {
+    val st = new Stack[Int]
+    assert(st != null)
+  }
 
 }
