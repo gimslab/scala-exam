@@ -1,16 +1,18 @@
 class MultiTable {
   def getString(): String = {
-    val str = 
-    for (n <- 1 to 10) yield makeRow(n);
-    str;
+    val rows = for ( n <- 1 to 10 ) yield {
+      makeRow(n)
+    }
+    rows.mkString("\n");
   }
 
   def makeRow(n: Int): String = {
-    val row =
-      for (h <- 1 to 10) yield {
-        n * h + " "
+    val cols = for (h <- 1 to 10) yield {
+        val result = n * h + " "
+        val padding = " " * (4 - result.length)
+        padding + result
       }
-    row + "\n"
+    cols.mkString("|")
   }
 }
 
